@@ -7,11 +7,11 @@
 |Chipset             |MediaTek MT6785 Helio G95                                     |
 |GPU                 |ARM Mali-G76 MC4                                              |
 |Memory              |4/6GB RAM                                                     |
-|Android Version     |12 to 13 (RUI3 to RUI4)                                               |
+|Android Version     |11 to 12 (RUI2 to RUI3)                                               |
 |Storage             |64/128GB                                                      |
 
 ## Working Feature
-- Decryption (Thanks [Howwof](https://t.me/@Howwof))
+- Decryption Date
 - Vibration/Haptic 
 - Flashing .img/zip
 - ADB Sideload
@@ -19,16 +19,23 @@
 - External Storage (SD and OTG)
 
 ## Bugs
-- Incorrect Battery Percentage After Decryption.
-- Flashlight Won't Work In Recovery.
+- Incorrect Battery Percentage After Decryption (Twrp & Pbrp Only)
+- Flashlight Won't Work
+- You Tell Me.
 
 
 ## Device Support Group 
 - Telegram Community: https://t.me/Realme8AOSPGroup
 
 
+##  Notes
+- This Is Recovery Tree Download Recovery From The Given Links.
+- Looking For Rui4 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI4.git).
+- Looking For Rui3 Builds? [Here](https://github.com/RipperHybrid/Recovery-Builder-RUI3.git).
+
 ## Credits
-- Thanks [Crypton](https://t.me/cd_Crypton)
+- Thanks [BloodCorruption](https://t.me/@BloodCorruption)
+- https://t.me/cd_Crypton
 - https://github.com/TeamWin
 - https://github.com/minimal-manifest-twrp
 - And to all Contributors in every repositories.
