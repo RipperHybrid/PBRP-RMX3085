@@ -140,18 +140,26 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && mka pbrp
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
-       
+
+    - name: Set Build Date # For Build Date Info, currently using Asia/Manila
+      run: |
+        echo "BUILD_DATE=$(TZ=Asia/Manila date +%Y%m%d)" >> $GITHUB_ENV
+        
+    - name: Modify File Name
+      run: |
+          mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/PBRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
+
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
+             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
              workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
-        name: Unofficial PBRP for RUI3 ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ steps.props.outputs.date }} / ${{ github.run_id }}
+        name: Unofficial PBRP for RUI3 ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
           Device: ${{ github.event.inputs.DEVICE_NAME }}
-          RUI_Version: ${{ github.event.inputs.RUI_VERSION }}
+          RUI_Version: ${{ github.event.inputs.REALME_UI_VERSION }}
           Target: ${{ github.event.inputs.BUILD_TARGET }}.img
           Status: Tested & Working.
