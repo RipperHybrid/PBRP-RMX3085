@@ -11,7 +11,7 @@
 |Storage             |64/128GB                                                      |
 
 ## Working Feature
-- Decryption (Thanks [Howwof](https://t.me/@Howwof))
+- Decryption (Thanks [Howwof](https://t.me/Howwof))
 - Vibration/Haptic 
 - Flashing .img/zip
 - ADB Sideload
