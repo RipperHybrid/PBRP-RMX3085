@@ -193,7 +193,7 @@ TARGET_USES_MKE2FS := true
 TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
 TW_NO_BATT_PERCENT := true
-TW_NO_CPU_TEMP := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone0/temp"
 
 #properties
 TW_OVERRIDE_SYSTEM_PROPS := \
