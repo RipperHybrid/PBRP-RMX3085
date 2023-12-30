@@ -48,9 +48,6 @@ TARGET_USES_UEFI := true
 # Platform
 TARGET_BOARD_PLATFORM := MT6785
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := RMX3085,RMX3085L1,nashc
-
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_IMAGE_NAME := Image.gz
@@ -181,6 +178,7 @@ PB_DISABLE_DEFAULT_TREBLE_COMP := true
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_OTA_ASSERT_DEVICE := RMX3085L1
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
@@ -192,12 +190,11 @@ TW_INCLUDE_LOGICAL := my_product my_engineering my_company my_carrier my_region 
 TARGET_USES_MKE2FS := true
 TW_USE_TOOLBOX:= true
 TW_OZIP_DECRYPT_KEY := 0000
-TW_NO_BATT_PERCENT := true
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone0/temp"
+TW_USE_LEGACY_BATTERY_SERVICES := true
 
 #properties
 TW_OVERRIDE_SYSTEM_PROPS := \
-     "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
+     "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name;ro.commonsoft.ota"
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
