@@ -29,7 +29,7 @@ on:
       REALME_UI_VERSION:
         description: 'REALME_UI_VERSION'
         required: true
-        default: 'RUI3-&-RUI4'
+        default: 'RUI3&4'
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
@@ -147,9 +147,9 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.REALME_UI_VERSION }}-Build-${{ env.BUILD_DATE }}.img
+             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
              workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
-        name: Unofficial PBRP for ${{ github.event.inputs.REALME_UI_VERSION }} ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
+        name: Unofficial PBRP for ${{ github.event.inputs.REALME_UI_VERSION }} ${{ github.event.inputs.DEVICE_NAMEE }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
