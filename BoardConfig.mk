@@ -1,4 +1,4 @@
-#
+0m#
 # Copyright (C) 2020 The Android Open Source Project
 # Copyright (C) 2021-2022 TeamWin Recovery Project
 #
@@ -39,6 +39,9 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_IS_64_BIT := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := RMX3085
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MT6785
@@ -169,10 +172,6 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
-
-#PBRP specific build flags
-PB_DISABLE_DEFAULT_DM_VERITY := true
-PB_DISABLE_DEFAULT_TREBLE_COMP := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
