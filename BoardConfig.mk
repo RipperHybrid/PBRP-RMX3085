@@ -208,6 +208,7 @@ TARGET_USES_LOGD := true
 
 # PBRP Build Flags
 PB_DISABLE_DEFAULT_TREBLE_COMP := true
+PB_DISABLE_DEFAULT_DM_VERITY := true
 
 # Version/Maintainer
 MAINTAINER := AshBorn
