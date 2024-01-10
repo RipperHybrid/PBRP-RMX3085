@@ -19,7 +19,6 @@
 - External Storage (SD and OTG)
 
 ## Bugs
-- Incorrect Battery Percentage After Decryption.
 - Flashlight Won't Work In Recovery.
 
 
