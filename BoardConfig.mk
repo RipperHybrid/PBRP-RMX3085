@@ -1,4 +1,4 @@
-0m#
+#
 # Copyright (C) 2020 The Android Open Source Project
 # Copyright (C) 2021-2022 TeamWin Recovery Project
 #
