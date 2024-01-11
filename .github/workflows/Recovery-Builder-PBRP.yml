@@ -42,6 +42,13 @@ on:
         description: 'BUILD_TARGET'
         required: true
         default: 'recovery'
+      RELEASE_OR_ARTIFACT:
+        description: 'Choose "release" or "artifact"'
+        required: true
+        type: choice
+        options:
+          - 'release'
+          - 'artifact'
 
 jobs:
   build:
@@ -143,13 +150,14 @@ jobs:
       run: |
           mv workspace/out/target/product/RMX3085/recovery.img workspace/out/target/product/RMX3085/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
 
-    - name: Upload to Release
+    - name: Upload to Release or Create Artifact
+      if: ${{ github.event.inputs.RELEASE_OR_ARTIFACT == 'release' }}
       uses: softprops/action-gh-release@v1
       with:
         files: |
-             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
-             workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
-        name: Unofficial PBRP for ${{ github.event.inputs.REALME_UI_VERSION }} ${{ github.event.inputs.DEVICE_NAMEE }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
+          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
+          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
+        name: Unofficial PBRP for ${{ github.event.inputs.REALME_UI_VERSION }} ${{ github.event.inputs.DEVICE_NAME }} - Build ${{ env.BUILD_DATE }} / ${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: |
           Manifest: ${{ github.event.inputs.MANIFEST_BRANCH }}
@@ -157,3 +165,10 @@ jobs:
           RUI_Version: ${{ github.event.inputs.REALME_UI_VERSION }}
           Target: ${{ github.event.inputs.BUILD_TARGET }}.img
           Status: Tested & Working.
+
+    - name: Create Artifact
+      if: ${{ github.event.inputs.RELEASE_OR_ARTIFACT == 'artifact' }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: recovery-artifact
+        path: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
