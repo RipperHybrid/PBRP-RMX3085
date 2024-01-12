@@ -176,3 +176,5 @@ jobs:
       with:
         name: recovery-artifact
         path: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
+        retention-days: 2
+        compression-level: 9
