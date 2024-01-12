@@ -165,10 +165,14 @@ jobs:
           RUI_Version: ${{ github.event.inputs.REALME_UI_VERSION }}
           Target: ${{ github.event.inputs.BUILD_TARGET }}.img
           Status: Tested & Working.
+          **Troubleshooting:**
+          If you encounter any issues during the installation:
+          - Logs: Include detailed logs when reporting problems.
+          - Community Support: Visit our [community forum](https://t.me/Realme8AOSPGroup) for assistance.
 
     - name: Create Artifact
       if: ${{ github.event.inputs.RELEASE_OR_ARTIFACT == 'artifact' }}
       uses: actions/upload-artifact@v2
       with:
         name: recovery-artifact
-        path: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP-unofficial-${{ github.event.inputs.DEVICE_NAME }}-Build-${{ env.BUILD_DATE }}.img
+        path: workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/PBRP*.zip
