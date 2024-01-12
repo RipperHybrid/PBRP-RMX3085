@@ -143,7 +143,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
-BOARD_ROOT_EXTRA_FOLDERS += metadata my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock my_version 
+BOARD_ROOT_EXTRA_FOLDERS += metadata 
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
