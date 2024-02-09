@@ -19,7 +19,6 @@
 - External Storage (SD and OTG)
 
 ## Bugs
-- Failed To Unmount Vendor (Rarely).
 - Flashlight Won't Work In Recovery.
 
 
